@@ -4,15 +4,17 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.ArrayList;
 
 public class rankDAO {
     public static void main(String[] args) {
-        // rank 테이블에는 이름/난이도/클리어타임/날자 이 있습니다.
-        insert("범찬", "어려움", "1500초", "2010-08-21");
+        // rank 테이블에는 이름/난이도/클리어타임 이 있습니다.
+        insert("범찬", "어려움", "1500초");
     }
 
-    public static void insert(String name, String difficulty, String timestamp,
-                              String timestamp1){
+    public static void insert(String name, String difficulty, String time_A){
         Connection conn = null;
         PreparedStatement pstmt = null;
         //실습실용   String jdbc_url = "jdbc:mysql://127.0.0.1:3306/test;
@@ -23,8 +25,7 @@ public class rankDAO {
             Class.forName("com.mysql.jdbc.Driver");
 
             // 2. 연결하기
-            String url = "jdbc:mysql://localhost/root";
-            conn = DriverManager.getConnection(jdbc_url, "test", "1234");
+            conn = DriverManager.getConnection(jdbc_url, "root", "1234");
 
 
             // 3. SQL 쿼리 준비
@@ -34,15 +35,14 @@ public class rankDAO {
             // pstmt = conn.prepareStatement(sql); 로 작성하여 데이터를 추가할 것임을 알립니다.
             // 물론 sql 쿼리 내에서 + 연산자로 한 줄로 작성할 수 있지만 가독성이 너무 떨어지게 되므로
             // 이 방법을 권합니다.
-            String sql = "INSERT INTO pet VALUES (?,?,?,?)";
+            String sql = "INSERT INTO pet VALUES (?,?,?)";
             pstmt = conn.prepareStatement(sql);
 
 
             // 4. 데이터 binding
             pstmt.setString(1, name);
             pstmt.setString(2, difficulty);
-            pstmt.setString(3, timestamp);
-            pstmt.setString(4, timestamp1);
+            pstmt.setString(3, time_A);
 
 
             // 5. 쿼리 실행 및 결과 처리
