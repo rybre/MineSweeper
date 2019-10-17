@@ -72,7 +72,7 @@ public class CustomController {
 		
 		
 	}
-	
+	//사용자 임의 설정
 	public void init() {
 		rowLabel.setText(String.format("Rows(%d-%d)", Util.MIN_ROW, Util.MAX_ROW));
 		colLabel.setText(String.format("Cols(%d-%d)", Util.MIN_COL, Util.MAX_COL));
