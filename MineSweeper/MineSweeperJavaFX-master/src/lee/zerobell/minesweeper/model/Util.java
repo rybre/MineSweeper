@@ -5,7 +5,7 @@ import javafx.scene.image.ImageView;
 import lee.zerobell.minesweeper.Main;
 
 public class Util {
-
+//내부기능
 	static final int OPEN = 1;
 	static final int CLOSED = 2;
 	static final int QUESTION = 3;
@@ -14,7 +14,7 @@ public class Util {
 	public static Image MarkedBitmap;
 	public static Image QuestionBitmap;
 	public static Image MineBitmap;
-	
+	//상단 연예인 사진 로드
 	public static ImageView GameReadyBitmap;
 	public static ImageView GameOverBitmap;
 	public static ImageView GameEndBitmap;

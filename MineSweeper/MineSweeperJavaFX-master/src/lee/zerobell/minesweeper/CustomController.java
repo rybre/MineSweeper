@@ -32,6 +32,7 @@ public class CustomController {
 	@FXML
 	Label mineLabel;
 	
+	//사용자 설정, 가로열,세로열,지뢰수
 	@FXML
 	public void createGame(Event e) {
 		int rowVal = Integer.parseInt(rowText.getText());

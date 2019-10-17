@@ -36,7 +36,7 @@ public class ViewRecordController {
 	
 	@FXML
 	Button resetBtn;
-	
+	//레코드 기본값
 	public void init() {
 		Preferences prefs = Preferences.userNodeForPackage(Main.class);
 		easy_name.setText(prefs.get("easy_name", "zerobell"));
@@ -52,7 +52,7 @@ public class ViewRecordController {
 	public void setDialogStage(Stage dialogStage) {
 		this.dialogStage = dialogStage;
 	}
-	
+	//레코드 초기화시 기본값
 	@FXML
 	public void reset(Event e) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);

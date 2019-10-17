@@ -33,8 +33,6 @@ public class rankDAO {
             // 즉 어떤 값이 전달될지 모르므로 Select 할 때와 달리
             // stmt = conn.createStatement(); 를 작성하지 않고
             // pstmt = conn.prepareStatement(sql); 로 작성하여 데이터를 추가할 것임을 알립니다.
-            // 물론 sql 쿼리 내에서 + 연산자로 한 줄로 작성할 수 있지만 가독성이 너무 떨어지게 되므로
-            // 이 방법을 권합니다.
             String sql = "INSERT INTO pet VALUES (?,?,?)";
             pstmt = conn.prepareStatement(sql);
 
@@ -58,6 +56,15 @@ public class rankDAO {
             else{
                 System.out.println("데이터 입력 성공");
             }
+            
+            ///// 게임에 저장된 정보를 DB 파일에 저장하기
+            public void rankRec() {
+                rankDao rdao = new RankDao();
+                
+                rdao.fileWrite(arrlist);
+            }
+
+
         }
         catch( ClassNotFoundException e){
             System.out.println("드라이버 로딩 실패");

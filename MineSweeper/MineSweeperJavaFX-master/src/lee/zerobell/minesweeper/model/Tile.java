@@ -20,7 +20,7 @@ public class Tile extends Button {
 	public Tile() {
 		this(0, 0);
 	}
-
+//미클릭 기본 지뢰칸
 	public Tile(int col, int row) {
 		super();
 		this.setPrefSize(Util.TILE_WIDTH, Util.TILE_HEIGHT);
@@ -64,7 +64,7 @@ public class Tile extends Button {
 	public int open() {
 		return open(false);
 	}
-
+//클릭시 지뢰칸 오픈
 	public int open(boolean ripple) {
 		if (this.state == Util.CLOSED) {
 			setState(Util.OPEN);
@@ -103,7 +103,7 @@ public class Tile extends Button {
 		}
 		return 0;
 	}
-
+//미클린된 블록 클릭시 지뢰표시, 물음표표시
 	public void refresh() {
 		if (state == Util.OPEN) {
 			if (content == Util.MINE) {
@@ -128,7 +128,7 @@ public class Tile extends Button {
 			this.setGraphic(null);
 		// SetGraphic()
 	}
-
+//클릭된 기본
 	public void mark() {
 		switch (this.state) {
 		case Util.MARKED:

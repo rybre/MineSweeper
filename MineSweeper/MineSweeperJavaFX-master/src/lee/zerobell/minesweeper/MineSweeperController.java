@@ -41,7 +41,7 @@ public class MineSweeperController {
 		this.main = main;
 		init();
 	}
-	
+	//게임시작
 	public void init() {
 		Util.setImages();
 		Tile.setModel(model);
@@ -74,7 +74,7 @@ public class MineSweeperController {
 	@FXML
 	public void start_easy(Event e) {
 		this.level = "easy";
-		
+		//쉬움난이도
 		main.setWindowSize(310, 410);
 		model.setMode(Util.MODE_EASY);
 		controlLayout.setPrefHeight(100);
@@ -97,7 +97,7 @@ public class MineSweeperController {
 		setMinePaneSize();
 		getReady();
 	}
-	
+	//보통난이도
 	@FXML
 	public void start_normal(Event e) {
 		this.level = "normal";
@@ -111,7 +111,7 @@ public class MineSweeperController {
 		setMinePaneSize();
 		getReady();
 	}
-	
+	//어려움난이도
 	@FXML
 	public void start_hard(Event e) {
 		this.level = "hard";
@@ -125,7 +125,7 @@ public class MineSweeperController {
 		setMinePaneSize();
 		getReady();
 	}
-	
+	//사용자 커스텀 난이도
 	@FXML
 	public void start_custom(Event e) {
 		AnchorPane customPane;
@@ -154,7 +154,7 @@ public class MineSweeperController {
 		}
 
 	}
-	
+	//세부옵션
 	public void set_custom(int cols, int rows, int mines) {
 		this.level = "custom";
 		
@@ -183,7 +183,7 @@ public class MineSweeperController {
 
 		alert.showAndWait();
 	}
-	
+	//게임 종료시 결과저장, 재시작
 	@FXML
 	public void viewRecord(Event e) {
 		main.showRecord();
@@ -200,7 +200,7 @@ public class MineSweeperController {
 		setMinePaneSize();
 		getReady();
 	}
-	
+	//타이머
 	private class Timer implements Runnable {
 		@Override
 		public void run() {
@@ -233,7 +233,7 @@ public class MineSweeperController {
 	public void gameOver() {
 		gameOver(false);
 	}
-	
+	//게임종료조건
 	public void gameOver(boolean victory) {
 		model.setState(Util.GAMEOVER);
 		if (victory) {
@@ -249,6 +249,8 @@ public class MineSweeperController {
 			dialog.setHeaderText("Congratulations! You've broken the record.");
 			dialog.setContentText("Input your name");
 			
+			
+			//게임 난이도, 게임시작,종료
 			if (this.level == "easy") {
 				recordTime = Integer.parseInt(prefs.get("easy_record", "999"));
 				if (thisTime<recordTime) {
